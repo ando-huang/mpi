@@ -5,7 +5,6 @@ int* prime_list(int n);
 
 int main(int argc, char* argv[]){
     int n = atoi(argv[1]); //cli arg turned to integer
-
     int* primes = prime_list(n);
     int count = primes[0];
     for(int i = 1; i<count; i++){
@@ -15,8 +14,10 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
+//This function generates the primes in the list
 int* prime_list(int n){
     int* primes = (int*)(malloc(sizeof(int)*n/2));
+    primes[0] = 2;
     int count = 0;
     int isPrime;
     for(int i = 2; i <= n; i++){
