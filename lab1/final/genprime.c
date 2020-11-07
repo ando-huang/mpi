@@ -67,7 +67,8 @@ int main(int argc, char* argv[]){
                 fprintf(f, "%d ", sect[i]);
             }
         }
-        for(int comm = 1; comm < comm_sz; comm++){
+	int comm;
+        for(comm = 1; comm < comm_sz; comm++){
             if(comm != comm_sz -1){ //the middle ones GOOD
                 size = (int)(n/comm_sz)+1;
                 MPI_Recv(sect, size, MPI_INT, comm, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
