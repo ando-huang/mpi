@@ -19,8 +19,8 @@ int main(int argc, char* argv[]){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
     //start timer
-    double starttime, endtime;
-    starttime = MPI_Wtime();
+    //double starttime, endtime;
+    //starttime = MPI_Wtime();
 
     int size = (int)(n/comm_sz);
 
@@ -89,18 +89,16 @@ int main(int argc, char* argv[]){
                     }
                 }
             }
-            
-        }
+	}
+        //endtime = MPI_Wtime();
+	//printf("Runtime is: %f\n", endtime - starttime);       
         fclose(f);
     }
     else{
         MPI_Send(sect, sect_size, MPI_INT, 0, 0, MPI_COMM_WORLD); //must match sect_size to the recv
     }
-    
-    endtime = MPI_Wtime();
-
-    printf("Time expended: %f\n", endtime - starttime);
-
+   
     MPI_Finalize();
+	
     return 0;
 }
